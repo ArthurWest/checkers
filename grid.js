@@ -22,11 +22,21 @@ const table = {
 		}
 
 		if (czech.x+dir == cell.x && czech.y+dir == cell.y) { //Going x-1;y-1/y+1
+			console.log('#1')
 			go()
 		} else if (czech.x-dir == cell.x && czech.y+dir == cell.y) { //Going x+1;y-1/y+1
+			console.log('#2')
 			go()
-		} else if (czech.hasAttack) {
-			attack(czech.hasAttack)
+		} else {
+			const options = czech.hasAttack(table.grid)
+			for (let i = 0; i < options.length; i++) {
+				if (options[i] == null) { //Pass this i because it's null
+					continue
+				}
+				if (cell.x == options[i].x && cell.y == options[i].y) { //If the cell you're aiming to is of the options
+					attack(i) //Attaking
+				}
+			}
 		}
 		//Helping fuction
 		function go() {
@@ -42,10 +52,15 @@ const table = {
 			table.grid[czech.x][czech.y].czech = null //Destroing the old one
 			table.czech = null; //Clearing
 			//Destroing the czech of the oponent
-			if (number == 1) {
+
+			if (number == 0) { //Top right
+				table.grid[czech.x+1][czech.y-1].czech = null
+			} else if (number == 1) { //Bottom right
+				table.grid[czech.x+1][czech.y+1].czech = null
+			} else if (number == 2) { //Bottom left
+				table.grid[czech.x-1][czech.y+1].czech = null
+			} else if (number == 3) {//Top left
 				table.grid[czech.x-1][czech.y-1].czech = null
-			} else if (number == 2) {
-				table.grid[czech.x+11][czech.y-1].czech = null
 			}
 			//Displaying grid
 			table.displayGrid();
