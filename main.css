@@ -1,0 +1,22 @@
+#grid {
+	border-collapse: collapse;
+}
+.cell {
+	padding: 0.4rem;
+	max-width: 3rem;
+	max-height: 3rem;
+	width: 4rem;
+	height: 4rem;
+	border: 0.3rem black;
+	background-color: lightgray;
+}
+.white {
+	background-color: #cccccc;
+}
+.black {
+	background-color: #ff8000;
+}
+.czech {
+	width: 3rem;
+	height: 3rem;
+}
