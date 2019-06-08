@@ -38,14 +38,28 @@ const table = {
 				}
 			}
 		}
+		//Cheking if there are any other options after the original going or attack
+		const optionsAfterTheOriginalGoing = czech.hasAttack(table.grid)
+		let optionsAfterValue = false
+		for (let i = 0; i < optionsAfterTheOriginalGoing.length; i++) {
+			if (optionsAfterTheOriginalGoing[i] != null) {
+				optionsAfterValue = true
+				break
+			}
+		}
+		///Aftermatch
+		table.displayGrid(); //Displing the grid
+		if (optionsAfterValue == true) {
+			//Players stays the same
+		} else {
+			table.player1 = !table.player1 //Player changes
+		}
 		//Helping fuction
 		function go() {
 			console.log('Current cell:'+ czech.x +','+czech.y+'/Going to:'+cell.x+','+cell.y)
 			table.grid[cell.x][cell.y].czech = new Czech(cell.x, cell.y, czech.white) //Creating the exact same czech in the new place
 			table.grid[czech.x][czech.y].czech = null //Destroing the old one
 			table.czech = null; //Clearing 
-			table.displayGrid();
-			table.player1 = !table.player1
 		}
 		function attack(number) {
 			table.grid[cell.x][cell.y].czech = new Czech(cell.x, cell.y, czech.white) //Creating the exact same czech in the new place
@@ -62,9 +76,6 @@ const table = {
 			} else if (number == 3) {//Top left
 				table.grid[czech.x-1][czech.y-1].czech = null
 			}
-			//Displaying grid
-			table.displayGrid();
-			table.player1 = !table.player1
 		}
 	},
 	attack: function(cell) {
