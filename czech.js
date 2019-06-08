@@ -21,19 +21,19 @@ class Czech {
 		}
 
 		//Top right
-		if (( x+2 >= 0 && x+2 <= 7 ) && ( y-2 >= 0 && y-2 <=7) && grid[x+1][y-1].white != this.white) { //1 & 2 is checking if the cell exists; 3 is checking if it's other player's chezch
+		if (( x+2 >= 0 && x+2 <= 7 ) && ( y-2 >= 0 && y-2 <=7) && grid[x+1][y-1].czech != null && grid[x+1][y-1].czech.white != this.white) { //1 & 2 is checking if the cell exists; 3 is checking if it's other player's chezch
 			options[0] = grid[x+2][y-2]
 		}
 		//Bottom right
-		if (( x+2 >= 0 && x+2 <= 7 ) && ( y+2 >= 0 && y+2 <=7) && grid[x+1][y+1].white != this.white) { //1 & 2 is checking if the cell exists; 3 is checking if it's other player's chezch
+		if (( x+2 >= 0 && x+2 <= 7 ) && ( y+2 >= 0 && y+2 <=7) && grid[x+1][y+1].czech != null && grid[x+1][y+1].czech.white != this.white) { //1 & 2 is checking if the cell exists; 3 is checking if it's other player's chezch
 			options[1] = grid[x+2][y+2]
 		}
 		//Bottom left
-		if (( x-2 >= 0 && x-2 <= 7 ) && ( y+2 >= 0 && y+2 <=7) && grid[x-1][y+1].white != this.white) { //1 & 2 is checking if the cell exists; 3 is checking if it's other player's chezch
+		if (( x-2 >= 0 && x-2 <= 7 ) && ( y+2 >= 0 && y+2 <=7) && grid[x-1][y+1].czech != null && grid[x-1][y+1].czech.white != this.white) { //1 & 2 is checking if the cell exists; 3 is checking if it's other player's chezch
 			options[2] = grid[x-2][y+2]
 		}
 		//Top left 
-		if (( x-2 >= 0 && x-2 <= 7 ) && ( y-2 >= 0 && y-2 <=7) && grid[x-1][y-1].white != this.white) { //1 & 2 is checking if the cell exists; 3 is checking if it's other player's chezch
+		if (( x-2 >= 0 && x-2 <= 7 ) && ( y-2 >= 0 && y-2 <=7) && grid[x-1][y-1].czech != null && grid[x-1][y-1].czech.white != this.white) { //1 & 2 is checking if the cell exists; 3 is checking if it's other player's chezch
 			options[3] = grid[x-2][y-2]
 		}
 		//Result
